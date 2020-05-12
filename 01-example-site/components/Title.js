@@ -1,0 +1,1 @@
+const Title = (props) => <h1>Hello, world! (component)</h1>;

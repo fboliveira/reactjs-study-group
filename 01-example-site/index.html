@@ -8,12 +8,39 @@
     <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 
+    <script src="./components/Title.js" type="text/babel"></script>
+    <script src="components/Welcome.js" type="text/babel"></script>
+    <script src="components/App.js" type="text/babel"></script>
+
 </head>
 <body>
 
     <div id="root">
 
     </div>
+
+    <script type="text/javascript">
+    
+    </script>
+
+    <script type="text/babel">
+
+        const root = document.getElementById("root");
+        const title = React.createElement('h1', null, 'Hello, world!');
+
+        const list = <ol>
+                        <li>Ana</li>
+                        <li>Pedro</li>
+                    </ol>;
+
+        const titleJSX = <h1>Hello, world! (com JSX)</h1>;
+
+        ReactDOM.render(
+            <App nome="Fernando" />,
+            root
+        );
+
+    </script>
 
 </body>
 </html>
