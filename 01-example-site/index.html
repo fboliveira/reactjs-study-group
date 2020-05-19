@@ -11,6 +11,11 @@
     <script src="./components/Title.js" type="text/babel"></script>
     <script src="./components/Welcome.js" type="text/babel"></script>
     <script src="./components/App.js" type="text/babel"></script>
+    <script src="./components/Menu.js" type="text/babel"></script>
+    <script src="./components/DataNames.js" type="text/babel"></script>
+
+    <script src="./data.js"></script>
+    
 
 </head>
 <body>
@@ -36,7 +41,7 @@
         const titleJSX = <h1>Hello, world! (com JSX)</h1>;
 
         ReactDOM.render(
-            <App nome="Fernando" />,
+            <App nome="Fernando" pessoas = { data } />,
             root
         );
 

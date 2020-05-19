@@ -3,10 +3,13 @@ class App extends React.Component {
     render() {
 
         return(
-            <React.Fragment>
+            <>
              <Title />
+             <Menu />
              <Welcome nome={ this.props.nome } />
-            </React.Fragment>
+             <DataNames names = { this.props.pessoas } gender = "F" />
+             <DataNames names = { this.props.pessoas } gender = "M" />
+            </>
         );
 
     }
