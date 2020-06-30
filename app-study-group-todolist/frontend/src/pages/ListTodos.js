@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaEdit, FaTrashAlt, FaPlusSquare, FaCheckSquare } from 'react-icons/fa';
+import { FaEdit, FaCheck, FaTrashAlt, FaTimesCircle } from 'react-icons/fa';
 
 // https://react-icons.github.io/react-icons/
 
@@ -8,10 +8,10 @@ import { FaEdit, FaTrashAlt, FaPlusSquare, FaCheckSquare } from 'react-icons/fa'
 const ListTodos = () => {
 
     return(
-        <div className="container">
+        <div className="container">            
             <h2>Lista de tarefas em aberto</h2>
 
-            <a href="/todo/add" className="btn btn-primary">Adicionar</a>
+            <Link to="/add" className="btn btn-primary">Adicionar</Link>
 
             <table className="table table-hover">
 
@@ -32,36 +32,10 @@ const ListTodos = () => {
                         <td>2</td>
                         <td>Criar o backend da aplicação</td>
                         <td>1</td>
-                        <td><a href="/todo/end/2"><FaPlusSquare size={20} /></a></td>
-                        <td><a href="/todo/update/2"><FaEdit size={20} /></a></td>
+                        <td><a href="/todo/end/2"><FaCheck color="green" size={20} /></a></td>
+                        <td><Link to="/update/2"><FaEdit size={20} /></Link></td>
                         <td><a href="/todo/del/2"><FaTrashAlt size={20} /></a></td>
                     </tr>
-
-                    <tr>
-                        <td>2</td>
-                        <td>Criar o backend da aplicação</td>
-                        <td>1</td>
-                        <td>+</td>
-                        <td>E</td>
-                        <td>X</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Criar o backend da aplicação</td>
-                        <td>1</td>
-                        <td>+</td>
-                        <td>E</td>
-                        <td>X</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Criar o backend da aplicação</td>
-                        <td>1</td>
-                        <td>+</td>
-                        <td>E</td>
-                        <td>X</td>
-                    </tr>
-
 
                 </tbody>
 
@@ -86,7 +60,7 @@ const ListTodos = () => {
                         <td>1</td>
                         <td>Criar o fronted da aplicação</td>
                         <td>1</td>
-                        <td><a href="/todo/cancel/1"><FaCheckSquare size={20} /></a></td>
+                        <td><a href="/todo/cancel/1"><FaTimesCircle size={20} color="red" /></a></td>
 
                     </tr>
                 </tbody>

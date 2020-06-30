@@ -1,16 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default function AddTodo() {
+export default function UpdateTodo() {
 
-    function handleAddTodo(event) {
+    function handleUpdateTodo(event) {
         event.preventDefault();
     }
 
     return(
         <div className="container-form">
-            <form onSubmit={handleAddTodo}>
 
+            <p className="text-info">ID: 10</p>
+
+            <form onSubmit={handleUpdateTodo}>
                 <div className="form-group">
                     <label>Descrição</label>
                     <input 
@@ -31,9 +33,9 @@ export default function AddTodo() {
                     type="submit"
                     className="btn btn-primary mr-2"
                 >
-                Cadastrar
+                Atualizar
                 </button>
-            
+
                 <button 
                     type="reset"
                     className="btn btn-danger mr-2">
@@ -45,6 +47,7 @@ export default function AddTodo() {
                     className="btn btn-info">
                         Voltar
                 </Link>
+
 
             </form>
         </div>
