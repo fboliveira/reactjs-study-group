@@ -9,11 +9,9 @@ const express = require('express');
 // PUT/PATCH
 // DELETE
 
-const routes = express.Router();
-
 const connection = require('./database/connection');
-
 const app = express();
+const routes = require('./routes');
 
 // request query
 // www.site.com/?codigo=10
@@ -21,26 +19,24 @@ const app = express();
 // request params
 // www.site.com/produto/10
 
-routes.get('/', (request, response) => {
-    return response.json({message: 'Olá, mundo! Restart.'});
-});
-
-async function getTodos(response) {
-    const todos = await connection('todos')
-    .select('*');
-    return response.send(todos);
-}
-
-routes.get('/todos', (request, response) => {
-    return getTodos(response);
-});
-
+app.use(express.json());
 app.use(routes);
 
 app.listen(3333, () => {
     console.log('TODO server started.');
 });
 
-// Sugestão:
+// 
+// Sugestões:
+//
 // Criar uma tabela de labels -> marcações nas tarefas
 // Criar uma relação N-N -> todos - labels
+// 
+// Lista de tarefas -> inserir os marcadores;
+// Lista de tarefas -> filtrar por marcadores;
+// Adicionar tarefa -> associar e incluir marcadores;
+
+// Criação do controller de marcadores;
+// Métodos -> index e create
+
+// Demais métodos - show, update e delete
