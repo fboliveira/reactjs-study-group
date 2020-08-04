@@ -5,14 +5,23 @@ GET http://localhost:3333/todos
 GET http://localhost:3333/todos/2
 
 ###
-PUT http://localhost:3333/todos/3
+PUT http://localhost:3333/todos/1
 Content-Type: application/json
 
 {
-    "name": "Criação dos marcadores de tarefas",
-    "priority": 2
+    "name": "Criação backend",
+    "priority": 1,
+    "completed": 1
 }
 
 ###
 
 DELETE http://localhost:3333/todos/3
+
+###
+
+GET http://localhost:3333/todos/complete/3
+
+###
+
+GET http://localhost:3333/todos/cancel/3

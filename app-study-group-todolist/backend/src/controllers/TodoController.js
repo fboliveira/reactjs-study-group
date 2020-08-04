@@ -54,13 +54,14 @@ module.exports = {
     async update(request, response) {
 
         const id = request.params.id;
-        const { name, priority } = request.body;
+        const { name, priority, completed } = request.body;
 
         await connection('todos')
             .where('id', '=', id)
             .update({
                 'name': name,
-                'priority': priority
+                'priority': priority,
+                'completed': completed
             }).then(() => {
                 return response.json({ id, name });
             }).catch((error) => {
@@ -75,6 +76,46 @@ module.exports = {
     async delete(request, response) {
 
         const id = request.params.id;
+
+    },
+
+    async complete(request, response) {
+
+        const id = request.params.id;
+
+        console.log({id});
+
+        await connection('todos')
+            .where('id', '=', id)
+            .update({
+                'completed': 1
+            }).then(() => {
+                console.log('completed');
+                return response.json({ id });
+            }).catch((error) => {
+                console.error(error.message);
+                return response
+                    .status(400)
+                    .message({ 'error': 'Complete error.' });
+            });
+
+    },
+
+    async cancel(request, response) {
+
+        const id = request.params.id;
+
+        await connection('todos')
+            .where('id', '=', id)
+            .update({
+                'completed': 0
+            }).then(() => {
+                return response.json({ id });
+            }).catch((error) => {
+                return response
+                    .status(400)
+                    .message({ 'error': 'Cancel error.' });
+            });
 
     }
 

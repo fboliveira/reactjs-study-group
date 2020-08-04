@@ -1,5 +1,6 @@
 // expressjs
 const express = require('express');
+const cors = require('cors')
 
 //import express from 'express'; // ES6 -> Node -> >= 13
 
@@ -19,6 +20,7 @@ const routes = require('./routes');
 // request params
 // www.site.com/produto/10
 
+app.use(cors());
 app.use(express.json());
 app.use(routes);
 

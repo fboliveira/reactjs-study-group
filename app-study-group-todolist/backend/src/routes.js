@@ -14,6 +14,8 @@ routes.get('/', (request, response) => {
 
 routes.get('/todos', TodoController.index);
 routes.get('/todos/:id', TodoController.show);
+routes.get('/todos/complete/:id', TodoController.complete);
+routes.get('/todos/cancel/:id', TodoController.cancel);
 routes.post('/todos', TodoController.create);
 routes.put('/todos/:id', TodoController.update);
 
