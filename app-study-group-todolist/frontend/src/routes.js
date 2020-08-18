@@ -17,7 +17,7 @@ export default function Routes() {
         <BrowserRouter>
             <Route path="/" exact component={ListTodos} />
             <Route path="/add" component={AddTodo} />
-            <Route path="/update/:id" component={UpdateTodo} />
+            <Route path="/todos/:id" component={UpdateTodo} />
         </BrowserRouter>
     );
 

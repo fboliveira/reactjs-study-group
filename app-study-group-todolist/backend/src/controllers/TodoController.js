@@ -54,6 +54,9 @@ module.exports = {
     async update(request, response) {
 
         const id = request.params.id;
+
+        console.log(request.body);
+
         const { name, priority, completed } = request.body;
 
         await connection('todos')

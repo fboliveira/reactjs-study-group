@@ -11,13 +11,17 @@ const ListTodos = () => {
 
     const [ todos, setTodos ] = useState([]);
 
-    useEffect(() => {
+    function loadData() {
         api.get('/todos')
             .then(response => {
                 setTodos(response.data);
                 //console.log(response.data);
-            })
-    }, [todos]);
+            });
+    }
+
+    useEffect(() => {
+        loadData();
+    }, []);
 
     function handleComplete(id){
 
@@ -36,13 +40,23 @@ const ListTodos = () => {
             })
 
     }    
+
+    function handleFilterPriority(priority) {
+        setTodos( todos.filter(item => item.priority === priority) );
+    }
+
+    function handleRefresh() {
+        loadData();
+    }
     return(
         <div className="container">            
             <h2>Lista de tarefas em aberto</h2>
 
             <Link to="/add" className="btn btn-primary">Adicionar</Link>
 
-            <table className="table table-hover">
+            <button onClick={handleRefresh} className="btn btn-primary">Limpar</button>
+
+            <table className="table table-responsive table-hover">
 
                 <thead>
                     <tr>
@@ -61,7 +75,11 @@ const ListTodos = () => {
                     <tr key={item.id}>
                         <td>{item.id}</td>
                         <td>{item.name}</td>
-                        <td>{item.priority}</td>
+                        <td>
+                            <button onClick ={() => handleFilterPriority(item.priority)}>
+                            {item.priority}
+                            </button>
+                        </td>
                         <td><button className="btn btn-link" onClick={()=> handleComplete(item.id)}><FaCheck color="green" size={20} /></button></td>
                         <td><Link to={`/todos/${item.id}`}><FaEdit size={20} /></Link></td>
                         <td><a href="/"><FaTrashAlt size={20} /></a></td>
